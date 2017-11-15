@@ -4,6 +4,11 @@
 
 package turboactivate
 
+/*
+#cgo CFLAGS: -I .
+
+#include "TurboActivate.h"
+*/
 import "C"
 
 type TAStrPtrType *C.CHAR
