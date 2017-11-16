@@ -1,6 +1,6 @@
 // Copyright 2017 wyDay, LLC. All rights reserved.
 
-package turboactivate
+package turboactivate // import "golang.wyday.com/turboactivate"
 
 /*
 #cgo CFLAGS: -I .
