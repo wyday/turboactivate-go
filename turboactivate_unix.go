@@ -2,7 +2,7 @@
 
 // +build !windows
 
-package turboactivate
+package turboactivate // import "golang.wyday.com/turboactivate"
 
 /*
 #cgo CFLAGS: -I .
