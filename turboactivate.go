@@ -606,7 +606,9 @@ func (ta *TurboActivate) TrialDaysRemaining(flags TAFlags) (uint32, error) {
 
 // UseTrial begins the trial the first time it's called.
 // Calling it again will validate the trial data hasn't been tampered with.
-func (ta *TurboActivate) UseTrial(flags TAFlags, extraData string) error {
+// Returns true if a trial was started and there was no error. Returns false
+// if there is no trial or it has already expired or there's an error.
+func (ta *TurboActivate) UseTrial(flags TAFlags, extraData string) (bool, error) {
 
 	var ret C.HRESULT
 
@@ -622,10 +624,12 @@ func (ta *TurboActivate) UseTrial(flags TAFlags, extraData string) error {
 
 	// TA_OK
 	if ret == 0x00 {
-		return nil
+		return true, nil
+	} else if ret == 0x1E { // TA_E_TRIAL_EXPIRED
+		return false, nil
 	}
 
-	return taHresultToErr(ret, "UseTrial")
+	return false, taHresultToErr(ret, "UseTrial")
 }
 
 // UseTrialVerifiedRequest generates a "verified trial" offline request file.
