@@ -429,8 +429,6 @@ func (ta *TurboActivate) IsActivated() (bool, error) {
 // this function.
 // Returns true if the date is valid, false if it's not.
 func (ta *TurboActivate) IsDateValid(dateTime string, flags TADateCheckFlags) (bool, error) {
-
-	//TODO: implement
 	var nativeDateTime = getTAStrPtr(dateTime)
 
 	var ret C.HRESULT = C.TA_IsDateValid(ta.handle, nativeDateTime, C.uint32_t(flags))
