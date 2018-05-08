@@ -1,4 +1,4 @@
-// Copyright 2017 wyDay, LLC. All rights reserved.
+// Copyright 2018 wyDay, LLC. All rights reserved.
 
 package turboactivate // import "golang.wyday.com/turboactivate"
 
@@ -486,26 +486,26 @@ func (ta *TurboActivate) IsGenuine() (IsGenuineResult, error) {
 //
 func (ta *TurboActivate) IsGenuineEx(daysBetweenChecks uint32, graceDaysOnInetErr uint32, skipOffline bool, offlineShowInetErr bool) (IsGenuineResult, error) {
 
-	var gen_opts C.GENUINE_OPTIONS
+	var genOpts C.GENUINE_OPTIONS
 
-	gen_opts.nLength = C.uint32_t(unsafe.Sizeof(gen_opts))
+	genOpts.nLength = C.uint32_t(unsafe.Sizeof(genOpts))
 
 	if skipOffline {
 		// TA_SKIP_OFFLINE
-		gen_opts.flags = 1
+		genOpts.flags = 1
 
 		if offlineShowInetErr {
 			// TA_OFFLINE_SHOW_INET_ERR
-			gen_opts.flags |= 2
+			genOpts.flags |= 2
 		}
 	} else {
-		gen_opts.flags = 0
+		genOpts.flags = 0
 	}
 
-	gen_opts.nDaysBetweenChecks = C.uint32_t(daysBetweenChecks)
-	gen_opts.nGraceDaysOnInetErr = C.uint32_t(graceDaysOnInetErr)
+	genOpts.nDaysBetweenChecks = C.uint32_t(daysBetweenChecks)
+	genOpts.nGraceDaysOnInetErr = C.uint32_t(graceDaysOnInetErr)
 
-	var ret C.HRESULT = C.TA_IsGenuineEx(ta.handle, (*C.GENUINE_OPTIONS)(unsafe.Pointer(&gen_opts)))
+	var ret C.HRESULT = C.TA_IsGenuineEx(ta.handle, (*C.GENUINE_OPTIONS)(unsafe.Pointer(&genOpts)))
 
 	switch ret {
 	case 0x00: // TA_OK
