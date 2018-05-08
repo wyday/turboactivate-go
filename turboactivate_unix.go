@@ -1,4 +1,4 @@
-// Copyright 2017 wyDay, LLC. All rights reserved.
+// Copyright 2018 wyDay, LLC. All rights reserved.
 
 // +build !windows
 
