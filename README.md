@@ -1,6 +1,6 @@
 # TurboActivate for Go
 
-This package, `golang.wyday.com/turboactivate`, allows you to add hardware-locked licensing (a.k.a. node-locked licensing) to your Go app.
+This package, `golang.wyday.com/turboactivate`, allows you to add [hardware-locked licensing (a.k.a. node-locked licensing)](https://wyday.com/limelm/help/licensing-types/#hardware-locked) to your Go app.
 
 To get this package open a command prompt or terminal and run the following command:
 
