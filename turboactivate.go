@@ -46,7 +46,7 @@ type TAFlags int
 var (
 	// TASystem flag tells TurboActivate to save the activation or
 	// trial data on a system-wide basis. This ensures that only
-	// a single use has to activate the software on the machine
+	// a single user has to activate the software on the machine
 	// and it will be available to all accounts on the machine.
 	TASystem TAFlags = 1
 
