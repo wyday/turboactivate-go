@@ -1,3 +1,7 @@
 /*.h
 *.dll
+*.dylib
+*.so
+*.lib
+*.a
 *.dat
