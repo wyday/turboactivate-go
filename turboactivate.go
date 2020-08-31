@@ -198,7 +198,7 @@ func (ta *TurboActivate) Activate(extraData string) error {
 
 		var actOptions C.ACTIVATE_OPTIONS
 		actOptions.nLength = C.uint32_t(unsafe.Sizeof(actOptions))
-		actOptions.sExtraData = (C.STRTYPE)(getTAStrPtr(extraData))
+		actOptions.sExtraData = (C.STRCTYPE)(getTAStrPtr(extraData))
 
 		ret = C.TA_Activate(ta.handle, (*C.ACTIVATE_OPTIONS)(unsafe.Pointer(&actOptions)))
 
@@ -229,7 +229,7 @@ func (ta *TurboActivate) ActivationRequestToFile(filename string, extraData stri
 		var actOptions C.ACTIVATE_OPTIONS
 
 		actOptions.nLength = C.uint32_t(unsafe.Sizeof(actOptions))
-		actOptions.sExtraData = (C.STRTYPE)(getTAStrPtr(extraData))
+		actOptions.sExtraData = (C.STRCTYPE)(getTAStrPtr(extraData))
 
 		ret = C.TA_ActivationRequestToFile(ta.handle, nativeFilename, (*C.ACTIVATE_OPTIONS)(unsafe.Pointer(&actOptions)))
 

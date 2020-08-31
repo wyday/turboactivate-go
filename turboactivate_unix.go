@@ -11,7 +11,7 @@ package turboactivate // import "golang.wyday.com/turboactivate"
 */
 import "C"
 
-type TAStrPtrType *C.CHAR
+type TAStrPtrType *C.char
 
 // getTAStrPtr gets the cstring on Unix.
 func getTAStrPtr(s string) TAStrPtrType {
