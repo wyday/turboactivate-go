@@ -7,6 +7,7 @@ package turboactivate // import "golang.wyday.com/turboactivate"
 /*
 #cgo CFLAGS: -I .
 
+#include <stdlib.h>
 #include "TurboActivate.h"
 */
 import "C"
